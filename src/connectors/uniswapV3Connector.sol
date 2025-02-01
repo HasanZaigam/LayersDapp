@@ -4,8 +4,8 @@ pragma solidity ^0.8.0;
 
 
 import "v3-core/contracts/interfaces/IUniswapV3Pool.sol";
-import "v3-periphery/contracts/interfaces/ISwapRouter.sol";
-import "v3-periphery/contracts/libraries/TransferHelper.sol";
+import "v3-periphery/interfaces/ISwapRouter.sol";
+import "v3-periphery/libraries/TransferHelper.sol";
 
 interface IInstaIndex {
     function connectors(uint version) external view returns (address);
