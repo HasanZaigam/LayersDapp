@@ -12,5 +12,3 @@ sepolia = "https://eth-sepolia.g.alchemy.com/v2/yS7Uom-922t4Hdpd61SsF3hmOOZBDjvj
 [etherscan]
 sepolia = { key = "${ETHERSCAN_API_KEY}", chain = "sepolia" }
 
-[profile.default]
-solc_version = "0.8.28"
