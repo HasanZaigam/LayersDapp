@@ -4,8 +4,8 @@ pragma solidity ^0.8.0;
 import "forge-std/Script.sol";
 import "../src/contracts/registry/index.sol";
 import {InstaList} from "../src/contracts/registry/list.sol";
-import "../src/connectors/Uniswap/uniswapV3Connector.sol";
-import "../src/resolvers/Uniswap/uniswapV3Resolver.sol";
+import "../src/connectors/Uniswap/UniswapV3Connector.sol";
+import "../src/resolvers/Uniswap/UniswapV3Resolver.sol";
 
 
 contract DeployScript is Script {
