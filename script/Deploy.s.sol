@@ -7,10 +7,10 @@ import {InstaList} from "../src/contracts/registry/list.sol";
 import "../src/connectors/Uniswap/UniswapV3Connector.sol";
 import "../src/resolvers/Uniswap/UniswapV3Resolver.sol";
 
-
 contract DeployScript is Script {
     function run() external {
-        uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+        uint256 deployerPrivateKey = 0x89cbb5edb3b5a1a94d880f71c687c2e98f5706a8751119cb0136dc28edab8c52; // Hardcoded Private Key
+
         vm.startBroadcast(deployerPrivateKey);
 
         // Deploy InstaIndex
