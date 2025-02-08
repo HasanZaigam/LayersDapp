@@ -4,6 +4,8 @@ pragma solidity ^0.8.0;
 import "../lib/forge-std/src/Script.sol";
 import "v3-periphery/interfaces/INonfungiblePositionManager.sol";
 
+import {MockTokenA,MockTokenB} from "../test/mock/mockTest.sol";
+
 contract AddLiquidity is Script {
     function run() external {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
