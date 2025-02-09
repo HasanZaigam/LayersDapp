@@ -1,10 +1,9 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.19;
 
-import "../lib/forge-std/src/Script.sol";
 import "v3-periphery/interfaces/INonfungiblePositionManager.sol";
-
-import {MockTokenA,MockTokenB} from "../test/mock/mockTest.sol";
+import "../test/mock/mockTest.sol";
+import {Script} from "forge-std/Script.sol";
 
 contract AddLiquidity is Script {
     function run() external {
@@ -13,13 +12,13 @@ contract AddLiquidity is Script {
 
         INonfungiblePositionManager positionManager = INonfungiblePositionManager(0xC36442b4a4522E871399CD717aBDD847Ab11FE88);
         
-        // Approve tokens
-        MockTokenA tokenA = MockTokenA(0xff2598561c79Fd9248b341B1B3808b8A04d5668c); // Replace with your token address
-        MockTokenB tokenB = MockTokenB(0xe8fCa2b97A1d0442D79f3C487288f2e34a781d96); // Replace with your token address
+        // Replace with your token addresses
+        MockTokenA tokenA = MockTokenA(0xff2598561c79Fd9248b341B1B3808b8A04d5668c);
+        MockTokenB tokenB = MockTokenB(0xe8fCa2b97A1d0442D79f3C487288f2e34a781d96);
+        
         tokenA.approve(address(positionManager), type(uint256).max);
         tokenB.approve(address(positionManager), type(uint256).max);
 
-        // Define liquidity parameters
         INonfungiblePositionManager.MintParams memory params = INonfungiblePositionManager.MintParams({
             token0: address(tokenA),
             token1: address(tokenB),
@@ -34,7 +33,6 @@ contract AddLiquidity is Script {
             deadline: block.timestamp + 1000
         });
 
-        // Add liquidity
         (uint256 tokenId, , , ) = positionManager.mint(params);
         
         vm.stopBroadcast();
